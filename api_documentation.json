@@ -1,0 +1,102 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "contact": {
+            "email": "dzian.cpp@gmail.com",
+            "name": "Dzianis Martynovich"
+        },
+        "description": "CaloriesAPI is an open-source REST API. It is a simple calories diary application to help its users controle their food intake.",
+        "title": "CaloriesAPI",
+        "version": "1.0.0-alfa"
+    },
+    "tags": [
+        {
+            "name": "Calories Diary"
+        }
+    ],
+    "paths": {
+        "/signup": {
+            "get": {
+                "description": "Returns a registration form",
+                "operationId": "signup",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "form": {
+                                        "name": {
+                                            "type": "text input",
+                                            "limit": 100,
+                                            "required": true
+                                        },
+                                        "lastName": {
+                                            "type": "text input",
+                                            "limit": 100,
+                                            "required": true
+                                        },
+                                        "email": {
+                                            "type": "text input",
+                                            "limit": 100,
+                                            "required": true
+                                        },
+                                        "height": {
+                                            "type": "integer input",
+                                            "limit": 256,
+                                            "required": true
+                                        },
+                                        "age": {
+                                            "type": "integer input",
+                                            "limit": 140,
+                                            "minValue": 18,
+                                            "required": true
+                                        },
+                                        "gender": {
+                                            "type": "option input",
+                                            "options": [
+                                                "male",
+                                                "female"
+                                            ],
+                                            "required": true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "security": [
+            {
+                "ApiKeyAuth": []
+            }
+        ]
+    },
+    "regissubmit-signup-formter": {
+        "post": {
+            "description": "Registers a new user.",
+            "operationId": "submit-signup-form",
+            "responses": {
+                "200": {
+                    "content": {
+                        "application/json": {
+                            "examples": {
+                                "statusCode": 200,
+                                "content": {
+                                    "message": "Successfully registered. You can now log in!",
+                                    "uri": "/login"
+                                }
+                            }
+                        }
+                    }
+                },
+                "302": {
+                    "headers": {
+                        "Location": "/login"
+                    }
+                }
+            }
+        }
+    }
+}
