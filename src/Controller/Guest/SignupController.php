@@ -11,7 +11,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
-class RegisterController extends AbstractController
+class SignupController extends AbstractController
 {
     #[Route(path: '/signup', name: 'signup', methods: ['GET'])]
     public function signup(): JsonResponse
