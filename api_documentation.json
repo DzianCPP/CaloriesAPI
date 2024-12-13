@@ -73,7 +73,7 @@
             }
         ]
     },
-    "regissubmit-signup-formter": {
+    "submit-signup-form": {
         "post": {
             "description": "Registers a new user.",
             "operationId": "submit-signup-form",
