@@ -13,14 +13,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class SignupController extends AbstractController
 {
-    #[Route(path: '/signup', name: 'signup', methods: ['GET'])]
-    public function signup(): JsonResponse
+    #[Route(path: '/signup-form', name: 'signup_form', methods: ['GET'])]
+    public function signupForm(): JsonResponse
     {
         return new JsonResponse(['data' => 'Hello!']);
     }
 
-    #[Route(path: '/submit-signup-form', name: 'submit_signup_form', methods: ['POST'])]
-    public function submitSignupForm(Request $request): JsonResponse
+    #[Route(path: '/signup', name: 'signup', methods: ['POST'])]
+    public function signup(Request $request): JsonResponse
     {
         $signupUseCase = new Signup();
 

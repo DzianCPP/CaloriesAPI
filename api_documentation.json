@@ -15,7 +15,7 @@
         }
     ],
     "paths": {
-        "/signup": {
+        "/signup-form": {
             "get": {
                 "description": "Returns a registration form",
                 "operationId": "signup",
@@ -67,36 +67,42 @@
                 }
             }
         },
-        "security": [
-            {
-                "ApiKeyAuth": []
-            }
-        ]
-    },
-    "submit-signup-form": {
-        "post": {
-            "description": "Registers a new user.",
-            "operationId": "submit-signup-form",
-            "responses": {
-                "200": {
-                    "content": {
-                        "application/json": {
-                            "examples": {
-                                "statusCode": 200,
-                                "content": {
-                                    "message": "Successfully registered. You can now log in!",
-                                    "uri": "/login"
+        "/signup": {
+            "post": {
+                "description": "Registers a new user.",
+                "operationId": "submit-signup-form",
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "examples": {
+                                    "statusCode": 200,
+                                    "content": {
+                                        "message": "Successfully registered. You can now log in!",
+                                        "uri": "/login"
+                                    }
                                 }
                             }
                         }
-                    }
-                },
-                "302": {
-                    "headers": {
-                        "Location": "/login"
+                    },
+                    "302": {
+                        "headers": {
+                            "Location": "/login"
+                        }
                     }
                 }
             }
-        }
+        },
+        "/login-form": {},
+        "/login": {},
+        "/day/{date}": {},
+        "/day-goal-from": {},
+        "/add-day-goal": {},
+        "/meal-form": {},
+        "/add-meal": {},
+        "/ingredient-form": {},
+        "/add-ingredient": {},
+        "/ingredient/{name}": {},
+        "/ingredient-reference-book": {}
     }
 }
